@@ -60,7 +60,7 @@ public class MemoryCard : MonoBehaviour
         SetState(MemoryCardState.Select);
         if (isSecond)
         {
-            selectedCompletion = new TaskCompletionSource<int>(0);
+            selectedCompletion = new TaskCompletionSource<int>();
             await selectedCompletion.Task;
         }
     }
@@ -89,5 +89,5 @@ public class MemoryCard : MonoBehaviour
     /// <summary>
     /// Callback when the card is selected
     /// </summary>
-    void Selected() => selectedCompletion.SetResult(0);
+    void Selected() => selectedCompletion?.TrySetResult(1);
 }
