@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private int rowConstraintCount = 4;
     [SerializeField] private int columnsConstraintCount = 6;
 
+    private MemoryCard selectedCard;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -34,6 +36,44 @@ public class GameController : MonoBehaviour
 
     private void OnCardClick(MemoryCard selectedCard)
     {
-        print(id);
+        // Prevent multiple selection
+        if (selectedCard.state != MemoryCardState.Normal)
+        {
+            return;
+        }
+
+        // Select the card
+        if (this.selectedCard == null)
+        {
+            this.selectedCard = selectedCard;
+            _ = selectedCard.Select(false);
+            return;
+        }
+
+        // Match cards if they are the same. Deselect cards otherwise
+        TryToMatch(this.selectedCard, selectedCard);
+    }
+
+    /// <summary>
+    /// Match cards if they are the same. Deselect cards otherwise
+    /// </summary>
+    /// <param name="firstCard"></param>
+    /// <param name="secondCard"></param>
+    private async void TryToMatch(MemoryCard firstCard, MemoryCard secondCard)
+    {
+        selectedCard = null;
+        await secondCard.Select(true);
+        // Match cards
+        if (firstCard.id == secondCard.id)
+        {
+            firstCard.Match();
+            secondCard.Match();
+        }
+        else
+        {
+            // Deselect cards
+            firstCard.Deselect();
+            secondCard.Deselect();
+        }
     }
 }
