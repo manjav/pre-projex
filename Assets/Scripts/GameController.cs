@@ -4,14 +4,19 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Transform parent;
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
     [SerializeField] private MemoryCard memoryCard;
     [SerializeField] private List<Sprite> spritesList;
     [SerializeField] private int rowConstraintCount = 4;
     [SerializeField] private int columnsConstraintCount = 6;
+    [SerializeField] private TMPro.TextMeshProUGUI turnesText;
+    [SerializeField] private TMPro.TextMeshProUGUI matchsText;
 
+
+    private int turnes = 0;
+    private int matchs = 0;
     private MemoryCard selectedCard;
+    private List<MemoryCard> cardsList;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -27,10 +32,12 @@ public class GameController : MonoBehaviour
             idsList.Add(i);
         }
         Utils.Shuffle(idsList);
+        cardsList = new List<MemoryCard>(cardCount);
         foreach (var id in idsList)
         {
-            var card = Instantiate(memoryCard, parent);
+            var card = Instantiate(memoryCard, gridLayoutGroup.transform);
             card.Initialize(id, spritesList[id], OnCardClick);
+            cardsList.Add(card);
         }
     }
 
@@ -61,13 +68,19 @@ public class GameController : MonoBehaviour
     /// <param name="secondCard"></param>
     private async void TryToMatch(MemoryCard firstCard, MemoryCard secondCard)
     {
+        turnes++;
+        turnesText.text = turnes.ToString();
+
         selectedCard = null;
         await secondCard.Select(true);
+
         // Match cards
         if (firstCard.id == secondCard.id)
         {
             firstCard.Match();
             secondCard.Match();
+            matchs++;
+            matchsText.text = matchs.ToString();
         }
         else
         {
