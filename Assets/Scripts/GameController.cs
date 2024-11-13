@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private int columnsConstraintCount = 6;
     [SerializeField] private TMPro.TextMeshProUGUI turnesText;
     [SerializeField] private TMPro.TextMeshProUGUI matchsText;
+    [SerializeField] private GameObject outcomePanel;
 
 
     private int turnes = 0;
@@ -74,13 +75,20 @@ public class GameController : MonoBehaviour
         selectedCard = null;
         await secondCard.Select(true);
 
-        // Match cards
+        // Match cards  
         if (firstCard.id == secondCard.id)
         {
             firstCard.Match();
             secondCard.Match();
+            
             matchs++;
             matchsText.text = matchs.ToString();
+
+            // Win if all cards are matched
+            if (matchs == cardsList.Count / 2)
+            {
+                outcomePanel.SetActive(true);
+            }
         }
         else
         {
