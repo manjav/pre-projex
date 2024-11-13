@@ -328,10 +328,92 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 128, y: 128}
+  m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 4
+--- !u!1 &1342527179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342527181}
+  - component: {fileID: 1342527180}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342527180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342527179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7331a41dd4b4f56bfa95133366edb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1228846789}
+  gridLayoutGroup: {fileID: 1228846790}
+  memoryCard: {fileID: -7751387203484944183, guid: a49870792c28046048afe240207fb97e, type: 3}
+  spritesList:
+  - {fileID: 21300000, guid: dc72afa72bbed4ed0aaa0df2752f9bfc, type: 3}
+  - {fileID: 21300000, guid: 6e969971ed9624f14b6aa5e6220cc9c4, type: 3}
+  - {fileID: 21300000, guid: 53cd7460763434aebb341ffd65d0fa76, type: 3}
+  - {fileID: 21300000, guid: ae74a6ba0517b44c3a3787decc4d2159, type: 3}
+  - {fileID: 21300000, guid: b96e2ad8edaef402695ac9897cd718f9, type: 3}
+  - {fileID: 21300000, guid: c1479ab8636bb4b6eb6466f170360a48, type: 3}
+  - {fileID: 21300000, guid: 2a86b1faa4609413b86f0a81cf80b43d, type: 3}
+  - {fileID: 21300000, guid: 4b4724cf23664419fbdf5cb381800906, type: 3}
+  - {fileID: 21300000, guid: 5f53c734af2e749189747e14f02a325b, type: 3}
+  - {fileID: 21300000, guid: e895143deb03c4a1bb28f0036da8a107, type: 3}
+  - {fileID: 21300000, guid: c68d109acc48b4aec9805d580abecade, type: 3}
+  - {fileID: 21300000, guid: 0aea1d8a61ef241549b146d93cd6012b, type: 3}
+  - {fileID: 21300000, guid: 0a958af163611427e931dd49fde2fcb2, type: 3}
+  - {fileID: 21300000, guid: 2e46505cb2ad542e3add97d6dab7ed76, type: 3}
+  - {fileID: 21300000, guid: d4f356d3aff114bf79f0699265b9663c, type: 3}
+  - {fileID: 21300000, guid: 571e6b9ecc33a4cbb8f6710bddcc4495, type: 3}
+  - {fileID: 21300000, guid: 06170f87d77934032bf08fd5385e141d, type: 3}
+  - {fileID: 21300000, guid: e9b215da717b749c081030419da02e22, type: 3}
+  - {fileID: 21300000, guid: 6b23a80f397ea432391b1dd32f34c772, type: 3}
+  - {fileID: 21300000, guid: daae71ec8190540ebb3c9ec6e32beb35, type: 3}
+  - {fileID: 21300000, guid: 5cc8b24a9fc2d474fa3c2eaaa7595a17, type: 3}
+  - {fileID: 21300000, guid: f05c3b2f503a14b15b8813ac2b81ccf3, type: 3}
+  - {fileID: 21300000, guid: eb9f5a03322e849eb8a15404f06a4329, type: 3}
+  - {fileID: 21300000, guid: 964e1f2b621bf400aae0b0f0f1215ef6, type: 3}
+  - {fileID: 21300000, guid: d2392dab7a43e4110bbd9ebe49a9efc1, type: 3}
+  - {fileID: 21300000, guid: 2b853b567173542dda2b4e1d00fdd817, type: 3}
+  - {fileID: 21300000, guid: 0624746af1d7d4290bc964bb992d2ce6, type: 3}
+  - {fileID: 21300000, guid: 9da41f3520ba54bdcaad5111f7783121, type: 3}
+  - {fileID: 21300000, guid: 6f95e9f93743b4365a1a6782be51b265, type: 3}
+  - {fileID: 21300000, guid: 2be003963091845b199e84997efef19d, type: 3}
+  - {fileID: 21300000, guid: c6cf9295e0b0b46d8ab1b38ea31915bb, type: 3}
+  - {fileID: 21300000, guid: 43c39b077529042c5837b9676cc7da25, type: 3}
+  rowConstraintCount: 4
+  columnsConstraintCount: 6
+--- !u!4 &1342527181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342527179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 448.0435, y: 293.80197, z: -1.979991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741919286
 GameObject:
   m_ObjectHideFlags: 0
