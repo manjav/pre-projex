@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void OnCardClick(int id)
+    private void OnCardClick(MemoryCard selectedCard)
     {
         print(id);
     }
