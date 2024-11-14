@@ -14,6 +14,7 @@ public class ApplicationController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        SoundManager.instance.PlayMusic();
         foreach (var level in levels)
         {
             var levelItemRenderer = Instantiate(levelItemTemplate, gridLayoutGroup.transform);

@@ -6,6 +6,9 @@ public class OutcomePanel : MonoBehaviour
 {
     [SerializeField] private List<Image> starImages;
     [SerializeField] private TMPro.TextMeshProUGUI titleText;
+    [SerializeField] private AudioClip winSFX;
+    [SerializeField] private AudioClip loseSFX;
+
     /// <summary>
     /// Show the win panel
     /// </summary>
@@ -15,6 +18,7 @@ public class OutcomePanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         titleText.text = "You Won!";
+        SoundManager.instance.Play(winSFX);
         UpdateStars(turnesThresholds, score);
     }
 
@@ -26,6 +30,7 @@ public class OutcomePanel : MonoBehaviour
 
         gameObject.SetActive(true);
         titleText.text = "You Lose!";
+        SoundManager.instance.Play(winSFX);
     }
 
     /// <summary>

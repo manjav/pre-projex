@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
     [SerializeField] private TMPro.TextMeshProUGUI turnesText;
     [SerializeField] private OutcomePanel outcomePanel;
+    [SerializeField] private AudioClip turnSFX;
+    [SerializeField] private AudioClip matchSFX;
+    [SerializeField] private AudioClip wrongSFX;
 
 
     private int turnes = 0;
@@ -48,6 +51,9 @@ public class GameController : MonoBehaviour
 
     private void OnCardClick(MemoryCard selectedCard)
     {
+        // Play turn sound
+        SoundManager.instance.Play(turnSFX);
+
         // Prevent multiple selection
         if (selectedCard.state != MemoryCardState.Normal)
         {
@@ -83,6 +89,8 @@ public class GameController : MonoBehaviour
         // Match cards  
         if (firstCard.id == secondCard.id)
         {
+            SoundManager.instance.Play(matchSFX);
+
             firstCard.Match();
             secondCard.Match();
 
@@ -92,7 +100,6 @@ public class GameController : MonoBehaviour
             {
                 var prefsName = $"Level {currentLevel.order}";
                 var savedScore = PlayerPrefs.GetInt(prefsName, 0);
-                print($"S{currentLevel.order} {turnes} {savedScore}");
                 if (turnes > savedScore)
                 {
                     PlayerPrefs.SetInt(prefsName, turnes);
@@ -102,6 +109,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            SoundManager.instance.Play(wrongSFX);
             // Deselect cards
             firstCard.Deselect();
             secondCard.Deselect();
