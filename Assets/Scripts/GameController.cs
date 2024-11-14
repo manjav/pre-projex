@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
     [SerializeField] private TMPro.TextMeshProUGUI turnesText;
     [SerializeField] private TMPro.TextMeshProUGUI matchsText;
-    [SerializeField] private GameObject outcomePanel;
+    [SerializeField] private OutcomePanel outcomePanel;
 
 
     private int turnes = 0;
@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        turnes = currentLevel.turnesLimit;
+        turnesText.text = turnes.ToString();
+
         gridLayoutGroup.constraintCount = currentLevel.columnsCount;
         var cardCount = currentLevel.rowsCount * currentLevel.columnsCount;
         var idsList = new List<int>();
@@ -68,7 +71,7 @@ public class GameController : MonoBehaviour
     /// <param name="secondCard"></param>
     private async void TryToMatch(MemoryCard firstCard, MemoryCard secondCard)
     {
-        turnes++;
+        turnes--;
         turnesText.text = turnes.ToString();
 
         selectedCard = null;
@@ -79,14 +82,14 @@ public class GameController : MonoBehaviour
         {
             firstCard.Match();
             secondCard.Match();
-            
+
             matchs++;
             matchsText.text = matchs.ToString();
 
             // Win if all cards are matched
             if (matchs == cardsList.Count / 2)
             {
-                outcomePanel.SetActive(true);
+                outcomePanel.Win();
             }
         }
         else
@@ -94,6 +97,12 @@ public class GameController : MonoBehaviour
             // Deselect cards
             firstCard.Deselect();
             secondCard.Deselect();
+
+            // Lose if no more turns
+            if (turnes <= 0)
+            {
+                outcomePanel.Lose();
+            }
         }
     }
 }

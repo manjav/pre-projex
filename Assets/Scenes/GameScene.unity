@@ -600,6 +600,7 @@ GameObject:
   - component: {fileID: 917781524}
   - component: {fileID: 917781526}
   - component: {fileID: 917781525}
+  - component: {fileID: 917781527}
   m_Layer: 5
   m_Name: OutcomePanel
   m_TagString: Untagged
@@ -667,6 +668,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917781523}
   m_CullTransparentMesh: 1
+--- !u!114 &917781527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917781523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f66dd734729a4e4d9087e7e105f5092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 443089804}
 --- !u!1001 &996146998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1138,9 +1152,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 43c39b077529042c5837b9676cc7da25, type: 3}
   memoryCard: {fileID: -7751387203484944183, guid: a49870792c28046048afe240207fb97e, type: 3}
   gridLayoutGroup: {fileID: 1001049832}
-  outcomePanel: {fileID: 917781523}
   turnesText: {fileID: 1490210054}
   matchsText: {fileID: 112750423}
+  outcomePanel: {fileID: 917781527}
 --- !u!4 &1342527181
 Transform:
   m_ObjectHideFlags: 0

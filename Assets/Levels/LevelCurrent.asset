@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b3bc004799f4d41bdea48c1bb504dd, type: 3}
   m_Name: LevelCurrent
   m_EditorClassIdentifier: 
-  turnsLimit: 20
-  rowConstraintCount: 3
-  columnsConstraintCount: 4
+  turnesLimit: 20
+  rowsCount: 3
+  columnsCount: 4
