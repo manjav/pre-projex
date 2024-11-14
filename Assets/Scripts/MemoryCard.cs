@@ -26,6 +26,8 @@ public class MemoryCard : MonoBehaviour
     // The callback when the card is clicked
     public delegate void CardClickCallBack(MemoryCard card);
     private CardClickCallBack callback;
+
+    // The callback when the card is selected
     private TaskCompletionSource<int> selectedCompletion;
 
     /// <summary>

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
@@ -89,6 +90,13 @@ public class GameController : MonoBehaviour
             // Win if all cards are matched
             if (matchs >= cardsList.Count / 2)
             {
+                var prefsName = $"Level {currentLevel.order}";
+                var savedScore = PlayerPrefs.GetInt(prefsName, 0);
+                print($"S{currentLevel.order} {turnes} {savedScore}");
+                if (turnes > savedScore)
+                {
+                    PlayerPrefs.SetInt(prefsName, turnes);
+                }
                 outcomePanel.Win();
             }
         }
@@ -105,4 +113,7 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    public void BackToHome() => SceneManager.LoadScene("homeScene");
+
 }
