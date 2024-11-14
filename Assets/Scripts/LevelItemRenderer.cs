@@ -20,6 +20,11 @@ public class LevelItemRenderer : MonoBehaviour
         this.onClickCallback = onClickCallback;
         titleText.text = $"Level {levelData.order}";
 
+        var savedScore = PlayerPrefs.GetInt($"Level {levelData.order}", 0);
+        for (int i = 0; i < starImages.Count; i++)
+        {
+            starImages[i].color = savedScore > levelData.turnesThresholds[i] ? Color.white : new Color(0.8f, 0.8f, 0.8f, 1);
+        }
     }
 
     // Internal click callback method 

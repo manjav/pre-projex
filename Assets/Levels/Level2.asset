@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b3bc004799f4d41bdea48c1bb504dd, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
-  turnsLimit: 22
-  rowConstraintCount: 4
-  columnsConstraintCount: 5
+  order: 3
+  rowsCount: 4
+  columnsCount: 5
+  turnesThresholds: 0f000000120000001400000023000000
