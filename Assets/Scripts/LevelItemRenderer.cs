@@ -20,10 +20,12 @@ public class LevelItemRenderer : MonoBehaviour
         this.onClickCallback = onClickCallback;
         titleText.text = $"Level {levelData.order}";
 
-        var savedScore = PlayerPrefs.GetInt($"Level {levelData.order}", 0);
-        for (int i = 0; i < starImages.Count; i++)
+        // Show the stars
+        var savedTurnes = PlayerPrefs.GetInt($"Level {levelData.order}", 0);
+        var score = levelData.GetScore(savedTurnes);
+        for (int i = 0; i < score; i++)
         {
-            starImages[i].color = savedScore > levelData.turnesThresholds[i] ? Color.white : new Color(0.8f, 0.8f, 0.8f, 1);
+            starImages[i].color = Color.white;
         }
     }
 

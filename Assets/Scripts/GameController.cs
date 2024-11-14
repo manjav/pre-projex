@@ -110,7 +110,7 @@ public class GameController : MonoBehaviour
                 {
                     PlayerPrefs.SetInt(prefsName, turnes);
                 }
-                outcomePanel.Win(currentLevel.turnesThresholds, turnes);
+                outcomePanel.Win(currentLevel, turnes);
             }
         }
         else

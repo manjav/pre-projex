@@ -12,14 +12,14 @@ public class OutcomePanel : MonoBehaviour
     /// <summary>
     /// Show the win panel
     /// </summary>
-    /// <param name="turnesThresholds"></param>
+    /// <param name="levelData"></param>
     /// <param name="score"></param>
-    public void Win(List<int> turnesThresholds, int score)
+    public void Win(LevelData levelData, int turnes)
     {
         gameObject.SetActive(true);
         titleText.text = "You Won!";
         SoundManager.instance.Play(winSFX);
-        UpdateStars(turnesThresholds, score);
+        UpdateStars(levelData, turnes);
     }
 
     /// <summary>
@@ -30,19 +30,22 @@ public class OutcomePanel : MonoBehaviour
 
         gameObject.SetActive(true);
         titleText.text = "You Lose!";
-        SoundManager.instance.Play(winSFX);
+        SoundManager.instance.Play(loseSFX);
     }
 
     /// <summary>
     /// Update the stars
     /// </summary>
-    /// <param name="turnesThresholds"></param>
+    /// <param name="levelData"></param>
     /// <param name="score"></param>
-    void UpdateStars(List<int> turnesThresholds, int score)
+    void UpdateStars(LevelData levelData, int turnes)
     {
-        for (int i = 0; i < starImages.Count; i++)
+        var score = levelData.GetScore(turnes);
+        for (int i = 0; i < score; i++)
         {
-            starImages[i].color = score > turnesThresholds[i] ? Color.white : new Color(0.8f, 0.8f, 0.8f, 1);
+            starImages[i].color = Color.white;
         }
+
+        print($"{score} {turnes},  {levelData.turnesThresholds}");
     }
 }

@@ -17,4 +17,17 @@ public class LevelData : ScriptableObject
         this.columnsCount = levelData.columnsCount;
         this.turnesThresholds = levelData.turnesThresholds;
     }
+
+    public int GetScore(int turnes)
+    {
+        if (turnes <= 0) return 0;
+        for (int i = 0; i < turnesThresholds.Count - 1; i++)
+        {
+            if (turnes < turnesThresholds[i])
+            {
+                return i + 1;
+            }
+        }
+        return 3;
+    }
 }
