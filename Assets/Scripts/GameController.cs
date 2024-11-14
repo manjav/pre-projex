@@ -4,11 +4,10 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GridLayoutGroup gridLayoutGroup;
-    [SerializeField] private MemoryCard memoryCard;
+    [SerializeField] private LevelData currentLevel;
     [SerializeField] private List<Sprite> spritesList;
-    [SerializeField] private int rowConstraintCount = 4;
-    [SerializeField] private int columnsConstraintCount = 6;
+    [SerializeField] private MemoryCard memoryCard;
+    [SerializeField] private GridLayoutGroup gridLayoutGroup;
     [SerializeField] private TMPro.TextMeshProUGUI turnesText;
     [SerializeField] private TMPro.TextMeshProUGUI matchsText;
     [SerializeField] private GameObject outcomePanel;
@@ -20,13 +19,13 @@ public class GameController : MonoBehaviour
     private List<MemoryCard> cardsList;
 
     /// <summary>
-    /// Start is called before the first frame update
+    /// Initialize the game controller
     /// </summary>
-    void Start()
+    void Awake()
     {
-        gridLayoutGroup.constraintCount = columnsConstraintCount;
+        gridLayoutGroup.constraintCount = currentLevel.columnsCount;
+        var cardCount = currentLevel.rowsCount * currentLevel.columnsCount;
         var idsList = new List<int>();
-        var cardCount = rowConstraintCount * columnsConstraintCount;
         for (int i = 0; i < cardCount / 2; i++)
         {
             idsList.Add(i);

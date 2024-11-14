@@ -1102,8 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db7331a41dd4b4f56bfa95133366edb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridLayoutGroup: {fileID: 1001049832}
-  memoryCard: {fileID: -7751387203484944183, guid: a49870792c28046048afe240207fb97e, type: 3}
+  currentLevel: {fileID: 11400000, guid: 81e7956843644446ba5569ff2b90c448, type: 2}
   spritesList:
   - {fileID: 21300000, guid: dc72afa72bbed4ed0aaa0df2752f9bfc, type: 3}
   - {fileID: 21300000, guid: 6e969971ed9624f14b6aa5e6220cc9c4, type: 3}
@@ -1137,11 +1136,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2be003963091845b199e84997efef19d, type: 3}
   - {fileID: 21300000, guid: c6cf9295e0b0b46d8ab1b38ea31915bb, type: 3}
   - {fileID: 21300000, guid: 43c39b077529042c5837b9676cc7da25, type: 3}
-  rowConstraintCount: 4
-  columnsConstraintCount: 6
+  memoryCard: {fileID: -7751387203484944183, guid: a49870792c28046048afe240207fb97e, type: 3}
+  gridLayoutGroup: {fileID: 1001049832}
+  outcomePanel: {fileID: 917781523}
   turnesText: {fileID: 1490210054}
   matchsText: {fileID: 112750423}
-  outcomePanel: {fileID: 917781523}
 --- !u!4 &1342527181
 Transform:
   m_ObjectHideFlags: 0
