@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private Slider turnesSlider;
+    [SerializeField] private MemoryCard memoryCard;
     [SerializeField] private LevelData currentLevel;
     [SerializeField] private List<Sprite> spritesList;
-    [SerializeField] private MemoryCard memoryCard;
     [SerializeField] private GridLayoutGroup gridLayoutGroup;
     [SerializeField] private TMPro.TextMeshProUGUI turnesText;
-    [SerializeField] private TMPro.TextMeshProUGUI matchsText;
     [SerializeField] private OutcomePanel outcomePanel;
 
 
@@ -23,7 +23,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        turnes = currentLevel.turnesLimit;
+        turnes = currentLevel.turnesThresholds[3];
+        turnesSlider.value = turnesSlider.maxValue = turnes;
         turnesText.text = turnes.ToString();
 
         gridLayoutGroup.constraintCount = currentLevel.columnsCount;
@@ -73,6 +74,7 @@ public class GameController : MonoBehaviour
     {
         turnes--;
         turnesText.text = turnes.ToString();
+        turnesSlider.value = turnes;
 
         selectedCard = null;
         await secondCard.Select(true);
@@ -84,10 +86,8 @@ public class GameController : MonoBehaviour
             secondCard.Match();
 
             matchs++;
-            matchsText.text = matchs.ToString();
-
             // Win if all cards are matched
-            if (matchs == cardsList.Count / 2)
+            if (matchs >= cardsList.Count / 2)
             {
                 outcomePanel.Win();
             }
