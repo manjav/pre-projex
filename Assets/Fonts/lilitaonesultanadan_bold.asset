@@ -67,7 +67,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.13
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
@@ -85,9 +85,9 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 512
     - _TextureWidth: 512
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
+    - _UnderlayDilate: 0.136
+    - _UnderlayOffsetX: 0.134
+    - _UnderlayOffsetY: -0.595
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -103,7 +103,7 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &11400000
 MonoBehaviour:
@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: lilitaonesultanadan_bold SDF
+  m_Name: lilitaonesultanadan_bold
   m_EditorClassIdentifier: 
-  hashCode: 45081185
+  hashCode: 1492495568
   material: {fileID: -2649969280794623820}
-  materialHashCode: -98055391
+  materialHashCode: -940665104
   m_Version: 1.1.0
   m_SourceFontFileGUID: 10fe47dd800be44f8811a191e5d2b789
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 10fe47dd800be44f8811a191e5d2b789, type: 3}
