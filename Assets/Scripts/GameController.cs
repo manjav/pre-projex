@@ -31,7 +31,13 @@ public class GameController : MonoBehaviour
         turnesSlider.value = turnesSlider.maxValue = turnes;
         turnesText.text = turnes.ToString();
 
+        // Autosize the grid of cards
+        Canvas canvas = FindObjectOfType<Canvas>();
         gridLayoutGroup.constraintCount = currentLevel.columnsCount;
+        var itemSize = canvas.GetComponent<RectTransform>().rect.width / currentLevel.columnsCount * 0.5f;
+        gridLayoutGroup.cellSize = new Vector2(itemSize, itemSize);
+
+        // Initialize the cards
         var cardCount = currentLevel.rowsCount * currentLevel.columnsCount;
         var idsList = new List<int>();
         for (int i = 0; i < cardCount / 2; i++)
